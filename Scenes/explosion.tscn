@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://cm4bdlayen1fn"]
+
+[ext_resource type="Script" path="res://Scripts/explosion.gd" id="1_70tjn"]
+[ext_resource type="Texture2D" uid="uid://c3ooklop4wo0w" path="res://Sprites/anim/0.png" id="1_hi1xr"]
+[ext_resource type="Texture2D" uid="uid://dcliry40u0tpm" path="res://Sprites/anim/1.png" id="2_vet1j"]
+[ext_resource type="Texture2D" uid="uid://jrfs2o2envpq" path="res://Sprites/anim/2.png" id="3_4f7ho"]
+[ext_resource type="Texture2D" uid="uid://b2ibmtxgw52wn" path="res://Sprites/anim/3.png" id="4_vdylo"]
+[ext_resource type="AudioStream" uid="uid://dvjqc5acwdtdl" path="res://Sound/explosion.mp3" id="6_hwf0p"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mum0n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hi1xr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_vet1j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4f7ho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_vet1j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vdylo")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dgbkw"]
+radius = 8.0
+
+[node name="Explosion" type="Node2D"]
+z_index = 2
+script = ExtResource("1_70tjn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(2, 2, 2, 1)
+sprite_frames = SubResource("SpriteFrames_mum0n")
+frame = 4
+frame_progress = 1.0
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_dgbkw")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_hwf0p")
+volume_db = -7.496
+attenuation = 1.86607
+panning_strength = 0.3

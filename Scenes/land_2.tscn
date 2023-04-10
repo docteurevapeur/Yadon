@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxx2pg4uanch1"]
+
+[ext_resource type="Texture2D" uid="uid://cvsu2qhwtpxf8" path="res://Sprites/land_2.png" id="1_nynbl"]
+
+[node name="land_2" type="Node2D"]
+z_index = 1
+
+[node name="Land2" type="Sprite2D" parent="."]
+modulate = Color(0.8, 0.8, 0.8, 1)
+position = Vector2(320, 180)
+texture = ExtResource("1_nynbl")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+build_mode = 1
+polygon = PackedVector2Array(0, 320, 5, 314, 35, 316, 76, 315, 78, 320, 144, 323, 233, 321, 253, 301, 263, 296, 293, 294, 306, 301, 371, 304, 385, 317, 514, 308, 545, 310, 598, 311, 620, 324, 637, 323, 640, 324, 640, 360, 0, 360)

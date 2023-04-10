@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://c80olnvbg1875"]
+
+[ext_resource type="Script" path="res://Scripts/ground_base.gd" id="1_t5nso"]
+[ext_resource type="AudioStream" uid="uid://xoxrcy13x5pp" path="res://Sound/bullet.mp3" id="2_y58hs"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gb6sh"]
+load_path = "res://.godot/imported/turret.png-0464439974aa917391aff7161a88839c.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u5iuj"]
+load_path = "res://.godot/imported/ground_base.png-4db474e0f9c08731afaca037614ba5f9.ctex"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_idslr"]
+radius = 14.0
+
+[node name="GroundBase" type="Node2D"]
+scale = Vector2(1.2, 1.2)
+script = ExtResource("1_t5nso")
+
+[node name="Turret" type="Sprite2D" parent="."]
+position = Vector2(0, -0.833333)
+rotation = -0.71733
+texture = SubResource("CompressedTexture2D_gb6sh")
+offset = Vector2(0, -22)
+
+[node name="GroundBase" type="Sprite2D" parent="."]
+position = Vector2(0, -6)
+texture = SubResource("CompressedTexture2D_u5iuj")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_idslr")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_y58hs")
+volume_db = -28.108
+pitch_scale = 0.42
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

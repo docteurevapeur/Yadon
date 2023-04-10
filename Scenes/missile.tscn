@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=3 uid="uid://dok02uijw0c4r"]
+
+[ext_resource type="Script" path="res://Scripts/missile.gd" id="1_kybas"]
+[ext_resource type="Texture2D" uid="uid://b85okw7j2xg4g" path="res://Sprites/missile.png" id="1_ubys3"]
+[ext_resource type="Texture2D" uid="uid://ox7ef1cbxex8" path="res://Sprites/missile_warning.png" id="2_q4ocy"]
+[ext_resource type="Texture2D" uid="uid://bv540jjcvmiji" path="res://Sprites/trail.png" id="4_w0mjq"]
+[ext_resource type="AudioStream" uid="uid://dw8i5w05gipf8" path="res://Sound/engine.mp3" id="5_o05yi"]
+[ext_resource type="AudioStream" uid="uid://n1bcrv7egn3q" path="res://Sound/bullet_hit.wav" id="6_j1nos"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vc5pr"]
+size = Vector2(48, 8)
+
+[sub_resource type="Curve" id="Curve_c8wwk"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0.0164835, 360), 0.0, 0.0, 0, 0, Vector2(1, -235.636), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="missile" type="Node2D"]
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_kybas")
+
+[node name="Missile" type="Sprite2D" parent="."]
+texture = ExtResource("1_ubys3")
+offset = Vector2(0, -4)
+
+[node name="MissileWarning" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("2_q4ocy")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, -1)
+shape = SubResource("RectangleShape2D_vc5pr")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-28, -4)
+amount = 100
+lifetime = 10.0
+texture = ExtResource("4_w0mjq")
+particle_flag_align_y = true
+direction = Vector2(-1, 0)
+spread = 2.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 300.0
+initial_velocity_max = 300.0
+angle_min = -290.9
+angle_max = 189.0
+angle_curve = SubResource("Curve_c8wwk")
+scale_amount_min = 0.3
+scale_amount_max = 0.45
+color = Color(1, 0.803922, 0.811765, 1)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_o05yi")
+volume_db = -15.928
+pitch_scale = 0.57
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_j1nos")
+volume_db = -16.865
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

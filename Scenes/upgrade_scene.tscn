@@ -1,0 +1,170 @@
+[gd_scene load_steps=20 format=3 uid="uid://d5c13dro3abe"]
+
+[ext_resource type="Texture2D" uid="uid://cjpeolyvry54t" path="res://Sprites/upgrades/background.png" id="1_ctpts"]
+[ext_resource type="Script" path="res://Scripts/upgrade_scene.gd" id="1_hoqr2"]
+[ext_resource type="Texture2D" uid="uid://ctrfs7pi5iacw" path="res://Sprites/upgrades/missile_warhead_upgrade.png" id="2_wb0xt"]
+[ext_resource type="Texture2D" uid="uid://d04wxuit4b2a4" path="res://Sprites/upgrades/missile_warhead_upgrade_hover.png" id="3_gx57t"]
+[ext_resource type="Texture2D" uid="uid://dvqdmn6g8kfu4" path="res://Sprites/upgrades/missile_body_upgrade.png" id="4_im075"]
+[ext_resource type="Texture2D" uid="uid://c2iisfah8yws" path="res://Sprites/upgrades/missile_warhead_upgrade_click.png" id="4_s1bdv"]
+[ext_resource type="FontFile" uid="uid://j8vmpnpu422i" path="res://Fonts/Jura-VariableFont_wght.ttf" id="5_1m6l4"]
+[ext_resource type="Texture2D" uid="uid://8jo0wlbhongf" path="res://Sprites/upgrades/missile_body_upgrade_hover.png" id="5_lmgde"]
+[ext_resource type="Texture2D" uid="uid://bicctct8g2rb0" path="res://Sprites/upgrades/missile_speed_upgrade.png" id="6_cc42w"]
+[ext_resource type="Texture2D" uid="uid://bh2yc5vue6ra3" path="res://Sprites/upgrades/missile_speed_upgrade_hover.png" id="7_rj75d"]
+[ext_resource type="Texture2D" uid="uid://b0p2wyp4rtk7p" path="res://Sprites/upgrades/missile_body_upgrade_click.png" id="8_blh4d"]
+[ext_resource type="Texture2D" uid="uid://ofy0m2k0ddnq" path="res://Sprites/upgrades/back.png" id="10_vch3d"]
+[ext_resource type="Texture2D" uid="uid://bdboc5wbco8tp" path="res://Sprites/upgrades/back_click.png" id="11_kt8w4"]
+[ext_resource type="Texture2D" uid="uid://67k37ga6b3yd" path="res://Sprites/upgrades/missile_speed_upgrade_click.png" id="11_ntscx"]
+[ext_resource type="Texture2D" uid="uid://dq0wp7g5vju7d" path="res://Sprites/upgrades/back_hover.png" id="12_7sf1q"]
+[ext_resource type="Script" path="res://Scenes/Point_Upgrade_Label.gd" id="16_pt7ff"]
+
+[sub_resource type="Theme" id="Theme_yh2ra"]
+default_font = ExtResource("5_1m6l4")
+
+[sub_resource type="Environment" id="Environment_lse73"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 8.0
+glow_strength = 2.0
+glow_hdr_threshold = 0.6
+glow_hdr_scale = 0.0
+glow_hdr_luminance_cap = 94.41
+fog_light_energy = 5.38
+fog_sun_scatter = 0.46
+fog_density = 0.6837
+fog_height = 21.56
+
+[sub_resource type="Theme" id="Theme_jn45i"]
+default_font = ExtResource("5_1m6l4")
+
+[node name="upgrade_scene" type="Node2D"]
+script = ExtResource("1_hoqr2")
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.0509804, 0.8, 1, 1)
+z_index = -2
+position = Vector2(320, 180)
+scale = Vector2(1, 1.125)
+texture = ExtResource("1_ctpts")
+
+[node name="Upgrades" type="Node" parent="."]
+
+[node name="TextureButton3" type="TextureButton" parent="Upgrades"]
+offset_left = 345.0
+offset_top = 149.0
+offset_right = 505.0
+offset_bottom = 213.0
+texture_normal = ExtResource("2_wb0xt")
+texture_pressed = ExtResource("4_s1bdv")
+texture_hover = ExtResource("3_gx57t")
+stretch_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Upgrades/TextureButton3"]
+visible = false
+modulate = Color(0.4, 1, 1, 1)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 65.0
+offset_right = 114.0
+offset_bottom = 173.0
+theme = SubResource("Theme_yh2ra")
+text = "Warhead upgrade:
+++ damage
+- speed
+Click to buy"
+scroll_active = false
+
+[node name="TextureButton" type="TextureButton" parent="Upgrades"]
+offset_left = 148.0
+offset_top = 149.0
+offset_right = 337.0
+offset_bottom = 214.0
+texture_normal = ExtResource("4_im075")
+texture_pressed = ExtResource("8_blh4d")
+texture_hover = ExtResource("5_lmgde")
+stretch_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Upgrades/TextureButton"]
+visible = false
+modulate = Color(0.4, 1, 1, 1)
+layout_mode = 0
+offset_left = 94.0
+offset_top = -103.0
+offset_right = 200.0
+offset_bottom = 5.0
+theme = SubResource("Theme_yh2ra")
+text = "Fuselage upgrade:
+++ armor
+- speed
+Click to buy"
+scroll_active = false
+
+[node name="TextureButton2" type="TextureButton" parent="Upgrades"]
+offset_left = 118.0
+offset_top = 105.0
+offset_right = 228.0
+offset_bottom = 190.0
+texture_normal = ExtResource("6_cc42w")
+texture_pressed = ExtResource("11_ntscx")
+texture_hover = ExtResource("7_rj75d")
+stretch_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Upgrades/TextureButton2"]
+visible = false
+modulate = Color(0.4, 1, 1, 1)
+layout_mode = 0
+offset_left = -94.0
+offset_right = 12.0
+offset_bottom = 108.0
+theme = SubResource("Theme_yh2ra")
+text = "Engine upgrade:
+++ speed
+Click to buy"
+scroll_active = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lse73")
+
+[node name="BackButton" type="TextureButton" parent="."]
+modulate = Color(1.1, 1.1, 1.1, 1)
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 55.0
+offset_bottom = 55.0
+texture_normal = ExtResource("10_vch3d")
+texture_pressed = ExtResource("11_kt8w4")
+texture_hover = ExtResource("12_7sf1q")
+stretch_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BackButton"]
+visible = false
+modulate = Color(0.4, 1, 1, 1)
+layout_mode = 0
+offset_left = 3.0
+offset_top = 40.0
+offset_right = 109.0
+offset_bottom = 148.0
+theme = SubResource("Theme_yh2ra")
+text = "back"
+scroll_active = false
+
+[node name="Label" type="Label" parent="."]
+offset_left = 550.0
+offset_top = 10.0
+offset_right = 599.0
+offset_bottom = 33.0
+theme = SubResource("Theme_jn45i")
+text = "Points:"
+script = ExtResource("16_pt7ff")
+
+[connection signal="mouse_entered" from="Upgrades/TextureButton3" to="." method="_on_texture_button_3_mouse_entered"]
+[connection signal="mouse_exited" from="Upgrades/TextureButton3" to="." method="_on_texture_button_3_mouse_exited"]
+[connection signal="pressed" from="Upgrades/TextureButton3" to="." method="_on_texture_button_3_pressed"]
+[connection signal="mouse_entered" from="Upgrades/TextureButton" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="mouse_exited" from="Upgrades/TextureButton" to="." method="_on_texture_button_mouse_exited"]
+[connection signal="pressed" from="Upgrades/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="mouse_entered" from="Upgrades/TextureButton2" to="." method="_on_texture_button_2_mouse_entered"]
+[connection signal="mouse_exited" from="Upgrades/TextureButton2" to="." method="_on_texture_button_2_mouse_exited"]
+[connection signal="pressed" from="Upgrades/TextureButton2" to="." method="_on_texture_button_2_pressed"]
+[connection signal="mouse_entered" from="BackButton" to="." method="_on_back_button_mouse_entered"]
+[connection signal="mouse_exited" from="BackButton" to="." method="_on_back_button_mouse_exited"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

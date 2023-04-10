@@ -1,0 +1,215 @@
+[gd_scene load_steps=16 format=3 uid="uid://q41sv3egoibn"]
+
+[ext_resource type="Script" path="res://Scripts/level_select.gd" id="1_8e5y2"]
+[ext_resource type="Texture2D" uid="uid://ctbsmxlvgq2v7" path="res://Sprites/ground.png" id="1_26ugy"]
+[ext_resource type="Texture2D" uid="uid://em2ct7jmukds" path="res://Sprites/target.png" id="2_ccc0j"]
+[ext_resource type="Texture2D" uid="uid://balu8uoplengj" path="res://Sprites/select.png" id="2_g26o3"]
+[ext_resource type="Texture2D" uid="uid://dw5olqn8aalkn" path="res://Sprites/select_click_down.png" id="3_6og4a"]
+[ext_resource type="Texture2D" uid="uid://bcxivmrelrc2g" path="res://Sprites/select_click.png" id="3_mfncl"]
+[ext_resource type="Texture2D" uid="uid://bukvcgao72wbs" path="res://Sprites/launch.png" id="7_bkpvv"]
+[ext_resource type="FontFile" uid="uid://j8vmpnpu422i" path="res://Fonts/Jura-VariableFont_wght.ttf" id="8_qmo18"]
+[ext_resource type="Texture2D" uid="uid://dt8whlj3ak52k" path="res://Sprites/quit.png" id="9_skbsh"]
+[ext_resource type="Texture2D" uid="uid://35hw12qxs8mm" path="res://Sprites/quit_press_down.png" id="10_idh1h"]
+[ext_resource type="Texture2D" uid="uid://bof6pcxiic5kn" path="res://Sprites/quit_press.png" id="11_wnskc"]
+
+[sub_resource type="Theme" id="Theme_xujqx"]
+default_font = ExtResource("8_qmo18")
+
+[sub_resource type="Theme" id="Theme_wwn0y"]
+default_font = ExtResource("8_qmo18")
+
+[sub_resource type="Theme" id="Theme_wuvqt"]
+default_font = ExtResource("8_qmo18")
+
+[sub_resource type="Environment" id="Environment_3c1mu"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 8.0
+glow_strength = 2.0
+glow_hdr_threshold = 0.52
+glow_hdr_scale = 0.0
+glow_hdr_luminance_cap = 129.44
+fog_light_energy = 5.38
+fog_sun_scatter = 0.46
+fog_density = 0.6837
+fog_height = 21.56
+
+[node name="level_select" type="Node2D"]
+script = ExtResource("1_8e5y2")
+
+[node name="Ground" type="Sprite2D" parent="."]
+modulate = Color(0.4, 0.8, 0.7, 1)
+position = Vector2(320, 180)
+texture = ExtResource("1_26ugy")
+
+[node name="Target" type="Sprite2D" parent="."]
+position = Vector2(209, 229)
+scale = Vector2(2.5, 2.333)
+texture = ExtResource("2_ccc0j")
+
+[node name="Target2" type="Sprite2D" parent="."]
+position = Vector2(45, 161)
+scale = Vector2(3.1875, 3)
+texture = ExtResource("2_ccc0j")
+
+[node name="Target3" type="Sprite2D" parent="."]
+position = Vector2(273, 102)
+scale = Vector2(3.1875, 3)
+texture = ExtResource("2_ccc0j")
+
+[node name="Launch" type="Sprite2D" parent="."]
+modulate = Color(0.4, 0.4, 0.8, 1)
+position = Vector2(371, 173)
+texture = ExtResource("7_bkpvv")
+
+[node name="TextureButton3" type="TextureButton" parent="."]
+modulate = Color(2, 1, 2, 1)
+offset_left = 344.0
+offset_top = 151.0
+offset_right = 391.0
+offset_bottom = 198.0
+texture_normal = ExtResource("2_g26o3")
+texture_pressed = ExtResource("3_6og4a")
+texture_hover = ExtResource("3_mfncl")
+stretch_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureButton3"]
+visible = false
+modulate = Color(0.4, 1, 1, 1)
+layout_mode = 0
+offset_left = 6.0
+offset_top = 42.0
+offset_right = 83.0
+offset_bottom = 82.0
+theme = SubResource("Theme_xujqx")
+text = "Base"
+scroll_active = false
+
+[node name="TextureButton5" type="TextureButton" parent="."]
+modulate = Color(2, 1, 2, 0.73)
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 44.0
+offset_bottom = 43.0
+texture_normal = ExtResource("9_skbsh")
+texture_pressed = ExtResource("10_idh1h")
+texture_hover = ExtResource("11_wnskc")
+stretch_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureButton5"]
+visible = false
+modulate = Color(0.4, 1, 1, 1)
+layout_mode = 0
+offset_left = 3.0
+offset_top = 34.0
+offset_right = 80.0
+offset_bottom = 74.0
+theme = SubResource("Theme_xujqx")
+text = "Quit"
+scroll_active = false
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(-137, 295)
+points = PackedVector2Array(362, -68, 488, -108)
+width = 2.0
+default_color = Color(0.6, 2, 2, 1)
+
+[node name="Line2D3" type="Line2D" parent="."]
+position = Vector2(-140, 220)
+points = PackedVector2Array(493, -59, 426, -105)
+width = 2.0
+default_color = Color(0.6, 2, 2, 1)
+
+[node name="Line2D2" type="Line2D" parent="."]
+position = Vector2(-55, 528)
+points = PackedVector2Array(118, -364, 403, -355)
+width = 2.0
+default_color = Color(0.6, 2, 2, 1)
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+modulate = Color(2, 1, 2, 1)
+offset_left = 26.0
+offset_top = 143.0
+offset_right = 66.0
+offset_bottom = 183.0
+texture_normal = ExtResource("2_g26o3")
+texture_pressed = ExtResource("3_6og4a")
+texture_hover = ExtResource("3_mfncl")
+stretch_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureButton2"]
+visible = false
+modulate = Color(0.4, 1, 1, 1)
+layout_mode = 0
+offset_left = 6.0
+offset_top = 37.0
+offset_right = 83.0
+offset_bottom = 77.0
+theme = SubResource("Theme_wwn0y")
+text = "Izkli"
+scroll_active = false
+
+[node name="TextureButton4" type="TextureButton" parent="."]
+modulate = Color(2, 1, 2, 1)
+offset_left = 253.0
+offset_top = 84.0
+offset_right = 293.0
+offset_bottom = 124.0
+texture_normal = ExtResource("2_g26o3")
+texture_pressed = ExtResource("3_6og4a")
+texture_hover = ExtResource("3_mfncl")
+stretch_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureButton4"]
+visible = false
+modulate = Color(0.4, 1, 1, 1)
+layout_mode = 0
+offset_left = 42.0
+offset_top = 14.0
+offset_right = 119.0
+offset_bottom = 54.0
+theme = SubResource("Theme_wwn0y")
+text = "Khinalya"
+scroll_active = false
+
+[node name="TextureButton" type="TextureButton" parent="."]
+modulate = Color(2, 1, 2, 1)
+offset_left = 189.0
+offset_top = 210.0
+offset_right = 229.0
+offset_bottom = 250.0
+texture_normal = ExtResource("2_g26o3")
+texture_pressed = ExtResource("3_6og4a")
+texture_hover = ExtResource("3_mfncl")
+stretch_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureButton"]
+visible = false
+modulate = Color(0.4, 1, 1, 1)
+layout_mode = 0
+offset_left = -5.0
+offset_top = 34.0
+offset_right = 72.0
+offset_bottom = 74.0
+theme = SubResource("Theme_wuvqt")
+text = "Rozhin"
+scroll_active = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3c1mu")
+
+[connection signal="mouse_entered" from="TextureButton3" to="." method="_on_texture_button_3_mouse_entered"]
+[connection signal="mouse_exited" from="TextureButton3" to="." method="_on_texture_button_3_mouse_exited"]
+[connection signal="pressed" from="TextureButton3" to="." method="_on_texture_button_3_pressed"]
+[connection signal="mouse_entered" from="TextureButton5" to="." method="_on_texture_button_5_mouse_entered"]
+[connection signal="mouse_exited" from="TextureButton5" to="." method="_on_texture_button_5_mouse_exited"]
+[connection signal="pressed" from="TextureButton5" to="." method="_on_texture_button_5_pressed"]
+[connection signal="mouse_entered" from="TextureButton2" to="." method="_on_texture_button_2_mouse_entered"]
+[connection signal="mouse_exited" from="TextureButton2" to="." method="_on_texture_button_2_mouse_exited"]
+[connection signal="pressed" from="TextureButton2" to="." method="_on_texture_button_2_pressed"]
+[connection signal="mouse_entered" from="TextureButton4" to="." method="_on_texture_button_4_mouse_entered"]
+[connection signal="mouse_exited" from="TextureButton4" to="." method="_on_texture_button_4_mouse_exited"]
+[connection signal="pressed" from="TextureButton4" to="." method="_on_texture_button_4_pressed"]
+[connection signal="mouse_entered" from="TextureButton" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="mouse_exited" from="TextureButton" to="." method="_on_texture_button_mouse_exited"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
