@@ -1,12 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://8u71bcl1hgf8"]
+[gd_scene load_steps=2 format=3 uid="uid://y42w6aobjys1"]
 
-[ext_resource type="Texture2D" uid="uid://bthtl1yft63ty" path="res://Sprites/land.png" id="1_7xy05"]
+[ext_resource type="Texture2D" uid="uid://bthtl1yft63ty" path="res://Sprites/land/land.png" id="1_cy74o"]
 
 [node name="Land" type="Node2D"]
 
 [node name="Land" type="Sprite2D" parent="."]
 position = Vector2(320, 180)
-texture = ExtResource("1_7xy05")
+texture = ExtResource("1_cy74o")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2

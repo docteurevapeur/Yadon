@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_6c7fq"]
 [ext_resource type="PackedScene" uid="uid://c80olnvbg1875" path="res://Scenes/ground_base.tscn" id="1_85og2"]
 [ext_resource type="Texture2D" uid="uid://bswbuxmxubtlp" path="res://Sprites/background.png" id="2_wa1bl"]
-[ext_resource type="PackedScene" uid="uid://8u71bcl1hgf8" path="res://Scenes/land.tscn" id="4_uqq2i"]
+[ext_resource type="PackedScene" uid="uid://y42w6aobjys1" path="res://Scenes/land.tscn" id="4_uqq2i"]
 [ext_resource type="Script" path="res://Scripts/level_checker.gd" id="5_0t140"]
 
 [sub_resource type="Environment" id="Environment_7sf7l"]

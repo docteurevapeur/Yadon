@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bswbuxmxubtlp" path="res://Sprites/background.png" id="2_8kk21"]
 [ext_resource type="PackedScene" uid="uid://c80olnvbg1875" path="res://Scenes/ground_base.tscn" id="3_hl0jk"]
 [ext_resource type="Script" path="res://Scripts/level_checker.gd" id="5_b8oal"]
-[ext_resource type="PackedScene" uid="uid://cxx2pg4uanch1" path="res://Scenes/land_2.tscn" id="5_lkd0u"]
+[ext_resource type="PackedScene" uid="uid://b7rsb33623oww" path="res://Scenes/land_2.tscn" id="5_lkd0u"]
 
 [sub_resource type="Environment" id="Environment_fr20b"]
 background_mode = 3
@@ -22,7 +22,6 @@ fog_density = 0.6837
 fog_height = 21.56
 
 [node name="Level" type="Node2D"]
-visible = false
 script = ExtResource("1_qxvfa")
 
 [node name="Background" type="Sprite2D" parent="."]

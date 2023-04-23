@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d5c13dro3abe"]
+[gd_scene load_steps=20 format=3 uid="uid://dbwj0l2womln"]
 
 [ext_resource type="Texture2D" uid="uid://cjpeolyvry54t" path="res://Sprites/upgrades/background.png" id="1_ctpts"]
 [ext_resource type="Script" path="res://Scripts/upgrade_scene.gd" id="1_hoqr2"]
@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bdboc5wbco8tp" path="res://Sprites/upgrades/back_click.png" id="11_kt8w4"]
 [ext_resource type="Texture2D" uid="uid://67k37ga6b3yd" path="res://Sprites/upgrades/missile_speed_upgrade_click.png" id="11_ntscx"]
 [ext_resource type="Texture2D" uid="uid://dq0wp7g5vju7d" path="res://Sprites/upgrades/back_hover.png" id="12_7sf1q"]
-[ext_resource type="Script" path="res://Scenes/Point_Upgrade_Label.gd" id="16_pt7ff"]
+[ext_resource type="Script" path="res://Scripts/Point_Upgrade_Label.gd" id="16_gblxq"]
 
 [sub_resource type="Theme" id="Theme_yh2ra"]
 default_font = ExtResource("5_1m6l4")
@@ -154,7 +154,7 @@ offset_right = 599.0
 offset_bottom = 33.0
 theme = SubResource("Theme_jn45i")
 text = "Points:"
-script = ExtResource("16_pt7ff")
+script = ExtResource("16_gblxq")
 
 [connection signal="mouse_entered" from="Upgrades/TextureButton3" to="." method="_on_texture_button_3_mouse_entered"]
 [connection signal="mouse_exited" from="Upgrades/TextureButton3" to="." method="_on_texture_button_3_mouse_exited"]

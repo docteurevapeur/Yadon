@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxx2pg4uanch1"]
+[gd_scene load_steps=2 format=3 uid="uid://b7rsb33623oww"]
 
-[ext_resource type="Texture2D" uid="uid://cvsu2qhwtpxf8" path="res://Sprites/land_2.png" id="1_nynbl"]
+[ext_resource type="Texture2D" uid="uid://cvsu2qhwtpxf8" path="res://Sprites/land/land_2.png" id="1_myjue"]
 
 [node name="land_2" type="Node2D"]
 z_index = 1
@@ -8,7 +8,7 @@ z_index = 1
 [node name="Land2" type="Sprite2D" parent="."]
 modulate = Color(0.8, 0.8, 0.8, 1)
 position = Vector2(320, 180)
-texture = ExtResource("1_nynbl")
+texture = ExtResource("1_myjue")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
