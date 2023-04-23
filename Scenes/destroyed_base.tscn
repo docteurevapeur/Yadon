@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2rvq6gfxonmo"]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource type="Texture2D" uid="uid://c200h08c022l5" path="res://Sprites/ground_base_destroyed.png" id="1_jncui"]
+[ext_resource type="Texture2D" uid="uid://c200h08c022l5" path="res://Sprites/land/ground_base_destroyed.png" id="1_jncui"]
 [ext_resource type="Texture2D" uid="uid://bv540jjcvmiji" path="res://Sprites/trail.png" id="2_smafh"]
 
 [sub_resource type="Curve" id="Curve_rx2gd"]

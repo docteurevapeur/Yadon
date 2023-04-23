@@ -6,7 +6,7 @@ var true_pos = Vector2.ZERO
 var compare_line = Vector2.UP
 var missile = []
 var locked_missile
-var bullet = preload("res://Scenes/Bullet.tscn")
+var bullet = preload("res://Scenes/bullet.tscn")
 var bullet_delay = 0
 var bullet_burst = 25
 var burst_delay = 0

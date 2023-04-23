@@ -1,16 +1,16 @@
-[gd_scene load_steps=16 format=3 uid="uid://q41sv3egoibn"]
+[gd_scene load_steps=16 format=3 uid="uid://b4m38wlyy8n1r"]
 
 [ext_resource type="Script" path="res://Scripts/level_select.gd" id="1_8e5y2"]
 [ext_resource type="Texture2D" uid="uid://ctbsmxlvgq2v7" path="res://Sprites/ground.png" id="1_26ugy"]
-[ext_resource type="Texture2D" uid="uid://em2ct7jmukds" path="res://Sprites/target.png" id="2_ccc0j"]
-[ext_resource type="Texture2D" uid="uid://balu8uoplengj" path="res://Sprites/select.png" id="2_g26o3"]
-[ext_resource type="Texture2D" uid="uid://dw5olqn8aalkn" path="res://Sprites/select_click_down.png" id="3_6og4a"]
-[ext_resource type="Texture2D" uid="uid://bcxivmrelrc2g" path="res://Sprites/select_click.png" id="3_mfncl"]
-[ext_resource type="Texture2D" uid="uid://bukvcgao72wbs" path="res://Sprites/launch.png" id="7_bkpvv"]
+[ext_resource type="Texture2D" uid="uid://em2ct7jmukds" path="res://Sprites/icons/target.png" id="3_0d2vc"]
+[ext_resource type="Texture2D" uid="uid://bukvcgao72wbs" path="res://Sprites/icons/launch.png" id="4_08g7p"]
+[ext_resource type="Texture2D" uid="uid://balu8uoplengj" path="res://Sprites/icons/select.png" id="5_jlsiu"]
+[ext_resource type="Texture2D" uid="uid://dw5olqn8aalkn" path="res://Sprites/icons/select_click_down.png" id="6_c3j0j"]
+[ext_resource type="Texture2D" uid="uid://bcxivmrelrc2g" path="res://Sprites/icons/select_click.png" id="7_nmocd"]
 [ext_resource type="FontFile" uid="uid://j8vmpnpu422i" path="res://Fonts/Jura-VariableFont_wght.ttf" id="8_qmo18"]
-[ext_resource type="Texture2D" uid="uid://dt8whlj3ak52k" path="res://Sprites/quit.png" id="9_skbsh"]
-[ext_resource type="Texture2D" uid="uid://35hw12qxs8mm" path="res://Sprites/quit_press_down.png" id="10_idh1h"]
-[ext_resource type="Texture2D" uid="uid://bof6pcxiic5kn" path="res://Sprites/quit_press.png" id="11_wnskc"]
+[ext_resource type="Texture2D" uid="uid://dt8whlj3ak52k" path="res://Sprites/icons/quit.png" id="9_jp4c5"]
+[ext_resource type="Texture2D" uid="uid://35hw12qxs8mm" path="res://Sprites/icons/quit_press_down.png" id="10_xdlrs"]
+[ext_resource type="Texture2D" uid="uid://bof6pcxiic5kn" path="res://Sprites/icons/quit_press.png" id="11_tmx1r"]
 
 [sub_resource type="Theme" id="Theme_xujqx"]
 default_font = ExtResource("8_qmo18")
@@ -45,22 +45,22 @@ texture = ExtResource("1_26ugy")
 [node name="Target" type="Sprite2D" parent="."]
 position = Vector2(209, 229)
 scale = Vector2(2.5, 2.333)
-texture = ExtResource("2_ccc0j")
+texture = ExtResource("3_0d2vc")
 
 [node name="Target2" type="Sprite2D" parent="."]
 position = Vector2(45, 161)
 scale = Vector2(3.1875, 3)
-texture = ExtResource("2_ccc0j")
+texture = ExtResource("3_0d2vc")
 
 [node name="Target3" type="Sprite2D" parent="."]
 position = Vector2(273, 102)
 scale = Vector2(3.1875, 3)
-texture = ExtResource("2_ccc0j")
+texture = ExtResource("3_0d2vc")
 
 [node name="Launch" type="Sprite2D" parent="."]
 modulate = Color(0.4, 0.4, 0.8, 1)
 position = Vector2(371, 173)
-texture = ExtResource("7_bkpvv")
+texture = ExtResource("4_08g7p")
 
 [node name="TextureButton3" type="TextureButton" parent="."]
 modulate = Color(2, 1, 2, 1)
@@ -68,9 +68,9 @@ offset_left = 344.0
 offset_top = 151.0
 offset_right = 391.0
 offset_bottom = 198.0
-texture_normal = ExtResource("2_g26o3")
-texture_pressed = ExtResource("3_6og4a")
-texture_hover = ExtResource("3_mfncl")
+texture_normal = ExtResource("5_jlsiu")
+texture_pressed = ExtResource("6_c3j0j")
+texture_hover = ExtResource("7_nmocd")
 stretch_mode = 4
 
 [node name="RichTextLabel" type="RichTextLabel" parent="TextureButton3"]
@@ -91,9 +91,9 @@ offset_left = 8.0
 offset_top = 7.0
 offset_right = 44.0
 offset_bottom = 43.0
-texture_normal = ExtResource("9_skbsh")
-texture_pressed = ExtResource("10_idh1h")
-texture_hover = ExtResource("11_wnskc")
+texture_normal = ExtResource("9_jp4c5")
+texture_pressed = ExtResource("10_xdlrs")
+texture_hover = ExtResource("11_tmx1r")
 stretch_mode = 4
 
 [node name="RichTextLabel" type="RichTextLabel" parent="TextureButton5"]
@@ -132,9 +132,9 @@ offset_left = 26.0
 offset_top = 143.0
 offset_right = 66.0
 offset_bottom = 183.0
-texture_normal = ExtResource("2_g26o3")
-texture_pressed = ExtResource("3_6og4a")
-texture_hover = ExtResource("3_mfncl")
+texture_normal = ExtResource("5_jlsiu")
+texture_pressed = ExtResource("6_c3j0j")
+texture_hover = ExtResource("7_nmocd")
 stretch_mode = 4
 
 [node name="RichTextLabel" type="RichTextLabel" parent="TextureButton2"]
@@ -155,9 +155,9 @@ offset_left = 253.0
 offset_top = 84.0
 offset_right = 293.0
 offset_bottom = 124.0
-texture_normal = ExtResource("2_g26o3")
-texture_pressed = ExtResource("3_6og4a")
-texture_hover = ExtResource("3_mfncl")
+texture_normal = ExtResource("5_jlsiu")
+texture_pressed = ExtResource("6_c3j0j")
+texture_hover = ExtResource("7_nmocd")
 stretch_mode = 4
 
 [node name="RichTextLabel" type="RichTextLabel" parent="TextureButton4"]
@@ -178,9 +178,9 @@ offset_left = 189.0
 offset_top = 210.0
 offset_right = 229.0
 offset_bottom = 250.0
-texture_normal = ExtResource("2_g26o3")
-texture_pressed = ExtResource("3_6og4a")
-texture_hover = ExtResource("3_mfncl")
+texture_normal = ExtResource("5_jlsiu")
+texture_pressed = ExtResource("6_c3j0j")
+texture_hover = ExtResource("7_nmocd")
 stretch_mode = 4
 
 [node name="RichTextLabel" type="RichTextLabel" parent="TextureButton"]
