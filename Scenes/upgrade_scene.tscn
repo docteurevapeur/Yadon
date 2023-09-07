@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dbwj0l2womln"]
+[gd_scene load_steps=22 format=3 uid="uid://dbwj0l2womln"]
 
 [ext_resource type="Texture2D" uid="uid://cjpeolyvry54t" path="res://Sprites/upgrades/background.png" id="1_ctpts"]
 [ext_resource type="Script" path="res://Scripts/upgrade_scene.gd" id="1_hoqr2"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://67k37ga6b3yd" path="res://Sprites/upgrades/missile_speed_upgrade_click.png" id="11_ntscx"]
 [ext_resource type="Texture2D" uid="uid://dq0wp7g5vju7d" path="res://Sprites/upgrades/back_hover.png" id="12_7sf1q"]
 [ext_resource type="Script" path="res://Scripts/Point_Upgrade_Label.gd" id="16_gblxq"]
+[ext_resource type="Shader" path="res://Shaders/level_select.gdshader" id="17_8gew5"]
 
 [sub_resource type="Theme" id="Theme_yh2ra"]
 default_font = ExtResource("5_1m6l4")
@@ -35,6 +36,30 @@ fog_height = 21.56
 
 [sub_resource type="Theme" id="Theme_jn45i"]
 default_font = ExtResource("5_1m6l4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vj8gk"]
+shader = ExtResource("17_8gew5")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.354
+shader_parameter/scanlines_width = 0.24
+shader_parameter/grille_opacity = 0.248
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 1.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 0.1
+shader_parameter/distort_intensity = 0.025
+shader_parameter/noise_opacity = 0.452
+shader_parameter/noise_speed = 1.0
+shader_parameter/static_noise_intensity = 0.071
+shader_parameter/aberration = -0.012
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.615
 
 [node name="upgrade_scene" type="Node2D"]
 script = ExtResource("1_hoqr2")
@@ -155,6 +180,12 @@ offset_bottom = 33.0
 theme = SubResource("Theme_jn45i")
 text = "Points:"
 script = ExtResource("16_gblxq")
+
+[node name="Panel" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_vj8gk")
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
 
 [connection signal="mouse_entered" from="Upgrades/TextureButton3" to="." method="_on_texture_button_3_mouse_entered"]
 [connection signal="mouse_exited" from="Upgrades/TextureButton3" to="." method="_on_texture_button_3_mouse_exited"]

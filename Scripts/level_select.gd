@@ -1,10 +1,11 @@
-extends Node2D
+extends Control
 @onready var city_label_one = $TextureButton/RichTextLabel
 @onready var city_label_two = $TextureButton2/RichTextLabel
 @onready var city_label_three = $TextureButton3/RichTextLabel
 @onready var city_label_four = $TextureButton4/RichTextLabel
 @onready var city_label_five = $TextureButton5/RichTextLabel
 
+#TODO: level progression and some general stats and more game mechanics would be nice
 
 func _on_texture_button_pressed():
 	Global.goto_scene("res://Scenes/level.tscn")

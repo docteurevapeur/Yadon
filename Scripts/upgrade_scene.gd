@@ -6,6 +6,8 @@ extends Node2D
 
 #This code gets repetitive, so here are some comments for myself
 
+#TODO: add upgrades for fighter jet, maybe make it unlockable
+
 #Hoverchecks
 
 func _on_texture_button_3_mouse_entered():

@@ -8,10 +8,6 @@ var rng = RandomNumberGenerator.new()
 var explosion = preload("res://Scenes/explosion_small.tscn")
 
 
-func _ready():
-	self.add_to_group("bullets")
-
-
 func _process(delta):
 	if angle != 200 and assigned == false:
 		velocity = velocity.rotated(angle - rng.randf_range(-.2, .2)) * speed

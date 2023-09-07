@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://b4m38wlyy8n1r"]
+[gd_scene load_steps=19 format=3 uid="uid://b4m38wlyy8n1r"]
 
 [ext_resource type="Script" path="res://Scripts/level_select.gd" id="1_8e5y2"]
 [ext_resource type="Texture2D" uid="uid://ctbsmxlvgq2v7" path="res://Sprites/ground.png" id="1_26ugy"]
+[ext_resource type="Shader" path="res://Shaders/level_select.gdshader" id="1_w1gkl"]
 [ext_resource type="Texture2D" uid="uid://em2ct7jmukds" path="res://Sprites/icons/target.png" id="3_0d2vc"]
 [ext_resource type="Texture2D" uid="uid://bukvcgao72wbs" path="res://Sprites/icons/launch.png" id="4_08g7p"]
 [ext_resource type="Texture2D" uid="uid://balu8uoplengj" path="res://Sprites/icons/select.png" id="5_jlsiu"]
@@ -11,6 +12,30 @@
 [ext_resource type="Texture2D" uid="uid://dt8whlj3ak52k" path="res://Sprites/icons/quit.png" id="9_jp4c5"]
 [ext_resource type="Texture2D" uid="uid://35hw12qxs8mm" path="res://Sprites/icons/quit_press_down.png" id="10_xdlrs"]
 [ext_resource type="Texture2D" uid="uid://bof6pcxiic5kn" path="res://Sprites/icons/quit_press.png" id="11_tmx1r"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_loxhl"]
+shader = ExtResource("1_w1gkl")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.296
+shader_parameter/scanlines_width = 0.089
+shader_parameter/grille_opacity = 0.154
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = false
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 1.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.417
 
 [sub_resource type="Theme" id="Theme_xujqx"]
 default_font = ExtResource("8_qmo18")
@@ -34,7 +59,34 @@ fog_sun_scatter = 0.46
 fog_density = 0.6837
 fog_height = 21.56
 
-[node name="level_select" type="Node2D"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v3hvh"]
+shader = ExtResource("1_w1gkl")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.337
+shader_parameter/scanlines_width = 0.198
+shader_parameter/grille_opacity = 0.321
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 1.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 0.1
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.181
+shader_parameter/noise_speed = 1.0
+shader_parameter/static_noise_intensity = 0.07
+shader_parameter/aberration = 0.00300005
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.552
+
+[node name="level_select" type="Control"]
+material = SubResource("ShaderMaterial_loxhl")
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_8e5y2")
 
 [node name="Ground" type="Sprite2D" parent="."]
@@ -64,6 +116,7 @@ texture = ExtResource("4_08g7p")
 
 [node name="TextureButton3" type="TextureButton" parent="."]
 modulate = Color(2, 1, 2, 1)
+layout_mode = 0
 offset_left = 344.0
 offset_top = 151.0
 offset_right = 391.0
@@ -87,6 +140,7 @@ scroll_active = false
 
 [node name="TextureButton5" type="TextureButton" parent="."]
 modulate = Color(2, 1, 2, 0.73)
+layout_mode = 0
 offset_left = 8.0
 offset_top = 7.0
 offset_right = 44.0
@@ -128,6 +182,7 @@ default_color = Color(0.6, 2, 2, 1)
 
 [node name="TextureButton2" type="TextureButton" parent="."]
 modulate = Color(2, 1, 2, 1)
+layout_mode = 0
 offset_left = 26.0
 offset_top = 143.0
 offset_right = 66.0
@@ -151,6 +206,7 @@ scroll_active = false
 
 [node name="TextureButton4" type="TextureButton" parent="."]
 modulate = Color(2, 1, 2, 1)
+layout_mode = 0
 offset_left = 253.0
 offset_top = 84.0
 offset_right = 293.0
@@ -174,6 +230,7 @@ scroll_active = false
 
 [node name="TextureButton" type="TextureButton" parent="."]
 modulate = Color(2, 1, 2, 1)
+layout_mode = 0
 offset_left = 189.0
 offset_top = 210.0
 offset_right = 229.0
@@ -197,6 +254,13 @@ scroll_active = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3c1mu")
+
+[node name="Panel" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_v3hvh")
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
 
 [connection signal="mouse_entered" from="TextureButton3" to="." method="_on_texture_button_3_mouse_entered"]
 [connection signal="mouse_exited" from="TextureButton3" to="." method="_on_texture_button_3_mouse_exited"]

@@ -6,6 +6,8 @@ var missile_speed = 250
 var missile_HP = 3
 var missile_damage = 1
 var points = 0
+var fighter_HP = 3
+var fighter_available = true
 
 func _ready():
 	var root = get_tree().get_root()

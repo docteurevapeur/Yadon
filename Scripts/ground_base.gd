@@ -30,6 +30,7 @@ func shoot(angle):
 		bullet_instance.position = global_position + (Vector2(0, -31).rotated(-angle))
 	bullet_instance.angle = turret.rotation
 	sound.play()
+	bullet_instance.add_to_group("bullets")
 
 
 func _process(delta):

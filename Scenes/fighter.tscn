@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://bi0kg13xhwuai"]
+
+[ext_resource type="Script" path="res://Scripts/Fighter.gd" id="1_tnslh"]
+[ext_resource type="Texture2D" uid="uid://bm3wng73wf8sk" path="res://Sprites/fighter.png" id="2_phstg"]
+[ext_resource type="Texture2D" uid="uid://bv540jjcvmiji" path="res://Sprites/trail.png" id="3_pyb0q"]
+[ext_resource type="AudioStream" uid="uid://dw8i5w05gipf8" path="res://Sound/engine.mp3" id="4_sofm8"]
+[ext_resource type="AudioStream" uid="uid://xoxrcy13x5pp" path="res://Sound/bullet.mp3" id="5_5n6le"]
+
+[sub_resource type="Curve" id="Curve_jbesc"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0.0164835, 360), 0.0, 0.0, 0, 0, Vector2(1, -235.636), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Fighter" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_tnslh")
+
+[node name="Fighter" type="Sprite2D" parent="."]
+position = Vector2(1, -5)
+texture = ExtResource("2_phstg")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-28, -5, -26, -11, -22, -11, -16, -6, -8, -5, 3, -5, 6, -4, 18, -4, 22, -2, 25, -2, 28, -1, 29, 0, 28, 2, 25, 3, 19, 4, 8, 5, -24, 5, -28, 2, -28, 1, -30, 1, -30, -3)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-30, -1)
+amount = 150
+lifetime = 5.0
+texture = ExtResource("3_pyb0q")
+particle_flag_align_y = true
+direction = Vector2(-1, 0)
+spread = 2.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 300.0
+initial_velocity_max = 300.0
+angle_min = -290.9
+angle_max = 189.0
+angle_curve = SubResource("Curve_jbesc")
+scale_amount_min = 0.3
+scale_amount_max = 0.45
+color = Color(1, 0.803922, 0.811765, 1)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-1, -1.78814e-07)
+scale = Vector2(2.9, 0.4)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_sofm8")
+volume_db = -15.928
+pitch_scale = 0.57
+attenuation = 3.86374
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_5n6le")
+volume_db = -28.108
+pitch_scale = 0.42
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,7 +1,11 @@
 extends Node2D
 @onready var missile = preload("res://Scenes/missile.tscn")
+@onready var fighter = preload("res://Scenes/fighter.tscn")
 var missile_count = Global.missile_number
 var missile_time = Global.missile_reload_wait
+
+func _ready():
+	Global.fighter_available = true
 
 func _process(delta):
 	if missile_count > 0:
@@ -14,3 +18,8 @@ func _process(delta):
 		missile_time = Global.missile_reload_wait
 	else:
 		missile_time -= delta
+	if Input.is_action_just_pressed("fighter"):
+		if Global.fighter_available:
+			var fighter_temp = fighter.instantiate()
+			self.add_child(fighter_temp)
+			Global.fighter_available = false
